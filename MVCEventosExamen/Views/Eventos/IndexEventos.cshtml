@@ -1,0 +1,16 @@
+﻿@model IEnumerable<APISegundoExamen.Models.Categoria>
+
+@{
+    ViewData["Title"] = "IndexEventos";
+}
+
+<form method="post">
+    <select name="categoria" id="categoria" class="form-control">
+        @foreach(var item in Model)
+        {
+            <option value="@item.IdCategoria">@item.Nombre</option>
+        }
+    </select>
+    <input type="submit" value="Ver" class="btn btn-primary" />
+</form>
+    

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<APISegundoExamen.Models.Evento>
+
+@{
+    ViewData["Title"] = "Eventos";
+}
+
+<h1>Eventos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success" asp-controller="Eventos">Nuevo Evento</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Artista)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCategoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artista)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCategoria)
+            </td>
+            <td>
+                <a asp-controller="Eventos" asp-action="Details" asp-route-id="@item.IdEvento" class="btn btn-success">Details</a>
+                <a asp-controller="Eventos" asp-action="Delete" asp-route-id="@item.IdEvento" class="btn btn-danger">Delete</a>
+                <a asp-controller="Eventos" asp-action="Update" asp-route-id="@item.IdEvento" class="btn btn-info">Update</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
